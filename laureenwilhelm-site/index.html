@@ -52,7 +52,7 @@
       transform: translate(-50%, -50%);
     }
     .cursor-ring {
-      position: fixed; width: 15px; height: 15px;
+      position: fixed; width: 30px; height: 30px;
       border: 1px solid var(--ora-line); border-radius: 50%;
       pointer-events: none; z-index: 9998;
       transform: translate(-50%, -50%);
@@ -76,6 +76,12 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 500;
       display: flex; justify-content: space-between; align-items: center;
       padding: 26px 48px;
+      transition: background 0.3s ease, padding 0.3s ease;
+    }
+    nav.scrolled {
+      background: rgba(4,4,10,0.97);
+      padding: 16px 48px;
+      border-bottom: 1px solid var(--mid);
     }
     nav::before {
       content: ''; position: absolute; inset: 0;
@@ -256,6 +262,15 @@
       position: relative; overflow: hidden;
       transition: transform .55s cubic-bezier(.25,.46,.45,.94);
     }
+    /* cover image for portfolio card */
+    .photo-cover {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .55s cubic-bezier(.25,.46,.45,.94);
+      z-index: 1;
+    }
+    .photo-item:hover .photo-cover { transform: scale(1.04); }
     .photo-item:hover .photo-placeholder { transform: scale(1.04); }
     .photo-placeholder::before {
       content: ''; position: absolute; inset: 0;
@@ -266,7 +281,7 @@
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(4,4,10,.93) 0%, transparent 55%);
       opacity: 0; transition: opacity .35s ease;
-      display: flex; align-items: flex-end; padding: 20px; z-index: 2;
+      display: flex; align-items: flex-end; padding: 20px; z-index: 3;
     }
     .photo-item:hover .photo-overlay { opacity: 1; }
     .photo-title {
@@ -462,6 +477,7 @@
     }
     @media (max-width:600px) { .photo-grid { columns:1; } .nav-links { display:none; } }
   </style>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -490,7 +506,8 @@
       <h1 class="hero-title">
         Laureen<br><em>Wilhelm</em>
       </h1>
-      <p class="hero-subtitle">Documenting the power, emotion, and legacy of women's sport.</p>
+      <p class="hero-subtitle">Women's Football</p>
+      <p class="hero-desc">Documenting the power, emotion, and legacy of women's football — from pitch to podium.</p>
       <div class="hero-cta">
         <a href="#about" class="btn-primary">Discover <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         <a href="#contact" class="btn-outline">Get in touch</a>
@@ -542,17 +559,57 @@
       </div>
     </div>
     <div class="photo-grid">
-      <a href="gallery-ofb-cup.html" class="photo-item reveal reveal-delay-1"><div class="photo-placeholder ratio-tall p1"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-overlay"><div class="photo-info"><span class="photo-title">ÖFB Cup Final</span><span class="photo-meta">Austria · 2026</span></div></div></a>
-      <a href="gallery-chelsea.html" class="photo-item reveal reveal-delay-2"><div class="photo-placeholder ratio-landscape p2"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-overlay"><div class="photo-info"><span class="photo-title">Chelsea FC Women</span><span class="photo-meta">UWCL · 2025</span></div></div></a>
-      <a href="gallery-skn.html" class="photo-item reveal reveal-delay-3"><div class="photo-placeholder ratio-portrait p3"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-overlay"><div class="photo-info"><span class="photo-title">SKN Frauen</span><span class="photo-meta">2025–2026</span></div></div></a>
-      <a href="gallery-ol.html" class="photo-item reveal reveal-delay-1"><div class="photo-placeholder ratio-wide p4"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-overlay"><div class="photo-info"><span class="photo-title">OL Lyonnes</span><span class="photo-meta">UWCL · 2025</span></div></div></a>
-      <a href="gallery-eag-psg.html" class="photo-item reveal reveal-delay-2"><div class="photo-placeholder ratio-sq p5"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-overlay"><div class="photo-info"><span class="photo-title">EAG — PSG Féminines</span><span class="photo-meta">2025</span></div></div></a>
-      <a href="gallery-juventus.html" class="photo-item reveal reveal-delay-3"><div class="photo-placeholder ratio-tall p6"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-overlay"><div class="photo-info"><span class="photo-title">Juventus Women</span><span class="photo-meta">UWCL · 2025</span></div></div></a>
-      <a href="gallery-agathe.html" class="photo-item reveal reveal-delay-1"><div class="photo-placeholder ratio-wide p7"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-overlay"><div class="photo-info"><span class="photo-title">Agathe</span><span class="photo-meta">Portrait</span></div></div></a>
-      <a href="gallery-atletico.html" class="photo-item reveal reveal-delay-2"><div class="photo-placeholder ratio-portrait p8"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-overlay"><div class="photo-info"><span class="photo-title">Atlético de Madrid</span><span class="photo-meta">UWCL · 2025</span></div></div></a>
-      <a href="gallery-afbl.html" class="photo-item reveal reveal-delay-3"><div class="photo-placeholder ratio-sq p9"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-overlay"><div class="photo-info"><span class="photo-title">Admiral Frauen Bundesliga</span><span class="photo-meta">2025–2026</span></div></div></a>
-      <a href="gallery-sabres-highlanders.html" class="photo-item reveal reveal-delay-1"><div class="photo-placeholder ratio-landscape p1"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-overlay"><div class="photo-info"><span class="photo-title">St Pölten Sabres — KSV Highlanders</span><span class="photo-meta">2026</span></div></div></a>
-      <a href="gallery-vienna-capitals.html" class="photo-item reveal reveal-delay-2"><div class="photo-placeholder ratio-tall p4"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-overlay"><div class="photo-info"><span class="photo-title">Vienna Capitals</span><span class="photo-meta">ICEHL · 2026</span></div></div></a>
+      <a href="gallery-ofb-cup.html" class="photo-item reveal reveal-delay-1"><div class="photo-placeholder ratio-tall p1"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="photo-cover" src="images/ofb-cup/photo-01.jpg" alt="ÖFB Cup Final" onerror="this.style.display='none'"><div class="photo-overlay"><div class="photo-info"><span class="photo-title">ÖFB Cup Final</span><span class="photo-meta">Austria · 2026</span></div></div></a>
+      <a href="gallery-chelsea.html" class="photo-item reveal reveal-delay-2"><div class="photo-placeholder ratio-landscape p2"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="photo-cover" src="images/chelsea/photo-01.jpg" alt="Chelsea FC Women" onerror="this.style.display='none'"><div class="photo-overlay"><div class="photo-info"><span class="photo-title">Chelsea FC Women</span><span class="photo-meta">UWCL · 2025</span></div></div></a>
+      <a href="gallery-skn.html" class="photo-item reveal reveal-delay-3"><div class="photo-placeholder ratio-portrait p3"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="photo-cover" src="images/skn/photo-01.jpg" alt="SKN Frauen" onerror="this.style.display='none'"><div class="photo-overlay"><div class="photo-info"><span class="photo-title">SKN Frauen</span><span class="photo-meta">2025–2026</span></div></div></a>
+      <a href="gallery-ol.html" class="photo-item reveal reveal-delay-1"><div class="photo-placeholder ratio-wide p4"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="photo-cover" src="images/ol-lyonnes/photo-01.jpg" alt="OL Lyonnes" onerror="this.style.display='none'"><div class="photo-overlay"><div class="photo-info"><span class="photo-title">OL Lyonnes</span><span class="photo-meta">UWCL · 2025</span></div></div></a>
+      <a href="gallery-eag-psg.html" class="photo-item reveal reveal-delay-2"><div class="photo-placeholder ratio-sq p5"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="photo-cover" src="images/eag-psg/photo-01.jpg" alt="EAG PSG Féminines" onerror="this.style.display='none'"><div class="photo-overlay"><div class="photo-info"><span class="photo-title">EAG — PSG Féminines</span><span class="photo-meta">2025</span></div></div></a>
+      <a href="gallery-juventus.html" class="photo-item reveal reveal-delay-3"><div class="photo-placeholder ratio-tall p6"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="photo-cover" src="images/juventus/photo-01.jpg" alt="Juventus Women" onerror="this.style.display='none'"><div class="photo-overlay"><div class="photo-info"><span class="photo-title">Juventus Women</span><span class="photo-meta">UWCL · 2025</span></div></div></a>
+      <a href="gallery-agathe.html" class="photo-item reveal reveal-delay-1"><div class="photo-placeholder ratio-wide p7"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="photo-cover" src="images/agathe/photo-01.jpg" alt="Agathe" onerror="this.style.display='none'"><div class="photo-overlay"><div class="photo-info"><span class="photo-title">Agathe</span><span class="photo-meta">Portrait</span></div></div></a>
+      <a href="gallery-atletico.html" class="photo-item reveal reveal-delay-2"><div class="photo-placeholder ratio-portrait p8"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="photo-cover" src="images/atletico/photo-01.jpg" alt="Atlético de Madrid" onerror="this.style.display='none'"><div class="photo-overlay"><div class="photo-info"><span class="photo-title">Atlético de Madrid</span><span class="photo-meta">UWCL · 2025</span></div></div></a>
+      <a href="gallery-afbl.html" class="photo-item reveal reveal-delay-3"><div class="photo-placeholder ratio-sq p9"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="photo-cover" src="images/afbl/photo-01.jpg" alt="Admiral Frauen Bundesliga" onerror="this.style.display='none'"><div class="photo-overlay"><div class="photo-info"><span class="photo-title">Admiral Frauen Bundesliga</span><span class="photo-meta">2025–2026</span></div></div></a>
+      <a href="gallery-sabres-highlanders.html" class="photo-item reveal reveal-delay-1"><div class="photo-placeholder ratio-landscape p1"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="photo-cover" src="images/sabres-highlanders/photo-01.jpg" alt="St Pölten Sabres" onerror="this.style.display='none'"><div class="photo-overlay"><div class="photo-info"><span class="photo-title">St Pölten Sabres — KSV Highlanders</span><span class="photo-meta">2026</span></div></div></a>
+      <a href="gallery-vienna-capitals.html" class="photo-item reveal reveal-delay-2"><div class="photo-placeholder ratio-tall p4"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><img class="photo-cover" src="images/vienna-capitals/photo-01.jpg" alt="Vienna Capitals" onerror="this.style.display='none'"><div class="photo-overlay"><div class="photo-info"><span class="photo-title">Vienna Capitals</span><span class="photo-meta">ICEHL · 2026</span></div></div></a>
+    </div>
+  </section>
+
+  <!-- SOCIAL MEDIA -->
+  <section id="social">
+    <div class="social-header reveal">
+      <div><div class="section-label">Content Creation</div><h2 class="social-title">Social <em>Media</em></h2></div>
+      <p class="social-intro">Beyond the lens — designing the visual identity of a club's Instagram: match days, birthdays, welcomes, and recaps.</p>
+    </div>
+    <div class="social-tabs reveal reveal-delay-1">
+      <button class="tab-btn active" data-tab="matchday">Match Day</button>
+      <button class="tab-btn" data-tab="birthday">Anniversaire</button>
+      <button class="tab-btn" data-tab="recap">Recap</button>
+      <button class="tab-btn" data-tab="welcome">Welcome</button>
+      <button class="tab-btn" data-tab="story">Stories</button>
+    </div>
+    <!-- MATCH DAY -->
+    <div class="phones-row" id="tab-matchday">
+      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="ig-header"><div class="ig-avatar"></div><span class="ig-handle">skn_frauen</span><div class="ig-dots"><span></span><span></span><span></span></div></div><div class="post-image"><div class="post-image-inner post-matchday"><span class="match-date-tag">Sa. 15.03 · 16:00</span><div class="match-divider"></div><div class="match-vs">SKN <span>vs</span> AKA</div><span class="match-detail">AFBL · Matchday 18</span></div></div><div class="ig-footer"><div class="ig-actions"><svg class="ig-action" viewBox="0 0 24 24" fill="none" stroke="#d8d8ee" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="ig-likes">1 284 likes</div><div class="ig-caption"><strong>skn_frauen</strong> Gameday 🖤 #AFBL</div></div></div></div><div class="phone-label"><span class="phone-label-type">Match Announcement</span><span class="phone-label-desc">Affiche de match avec horaire et adversaire</span></div></div>
+      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="ig-header"><div class="ig-avatar"></div><span class="ig-handle">skn_frauen</span><div class="ig-dots"><span></span><span></span><span></span></div></div><div class="post-image"><div class="post-image-inner post-matchday" style="background:linear-gradient(170deg,#04080a 0%,#081422 60%,#040408 100%);"><span class="match-date-tag">Lineup · 15.03.2025</span><div class="match-divider"></div><div class="match-vs" style="font-size:13px;letter-spacing:0.08em;font-style:normal;">4–4–2</div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;width:100%;margin-top:7px;"><div style="text-align:center;"><div style="width:18px;height:18px;border-radius:50%;background:rgba(61,47,255,0.3);margin:0 auto 3px;"></div><span style="font-size:5px;color:#6868a0;font-family:var(--body);">MÜLLER</span></div><div style="text-align:center;"><div style="width:18px;height:18px;border-radius:50%;background:rgba(61,47,255,0.3);margin:0 auto 3px;"></div><span style="font-size:5px;color:#6868a0;font-family:var(--body);">BAUER</span></div><div style="text-align:center;"><div style="width:18px;height:18px;border-radius:50%;background:rgba(61,47,255,0.3);margin:0 auto 3px;"></div><span style="font-size:5px;color:#6868a0;font-family:var(--body);">KERN</span></div><div style="text-align:center;"><div style="width:18px;height:18px;border-radius:50%;background:rgba(61,47,255,0.3);margin:0 auto 3px;"></div><span style="font-size:5px;color:#6868a0;font-family:var(--body);">HUBER</span></div></div></div></div><div class="ig-footer"><div class="ig-likes">976 likes</div><div class="ig-caption"><strong>skn_frauen</strong> Starting XI 💪</div></div></div></div><div class="phone-label"><span class="phone-label-type">Lineup</span><span class="phone-label-desc">Formation tactique avec joueuses</span></div></div>
+      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="ig-header"><div class="ig-avatar"></div><span class="ig-handle">skn_frauen</span><div class="ig-dots"><span></span><span></span><span></span></div></div><div class="post-image"><div class="post-image-inner" style="aspect-ratio:1;background:linear-gradient(160deg,#04040e 0%,#080826 60%,#04040a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:14px;position:relative;"><div style="width:38px;height:38px;border-radius:50%;background:rgba(61,47,255,0.15);border:1px solid rgba(61,47,255,0.3);display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--display);font-size:14px;font-style:italic;color:var(--ora-bright);">D</span></div><span style="font-family:var(--display);font-style:italic;font-size:11px;font-weight:400;color:var(--cream);">Decathlon Football</span><span style="font-size:6px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ash);font-family:var(--body);">Official Partner</span></div></div><div class="ig-footer"><div class="ig-likes">642 likes</div><div class="ig-caption"><strong>skn_frauen</strong> Merci @decathlon 🙌</div></div></div></div><div class="phone-label"><span class="phone-label-type">Sponsor Post</span><span class="phone-label-desc">Mise en avant partenaire</span></div></div>
+    </div>
+    <!-- BIRTHDAY -->
+    <div class="phones-row" id="tab-birthday" style="display:none;">
+      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="ig-header"><div class="ig-avatar"></div><span class="ig-handle">skn_frauen</span><div class="ig-dots"><span></span><span></span><span></span></div></div><div class="post-image"><div class="post-image-inner post-birthday"><span class="bday-num">23</span><div class="bday-photo-slot"><span class="bday-emoji">🎂</span></div><span class="bday-label">Happy Birthday</span><span class="bday-name">Laura Brunner</span><span style="font-size:6px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dust);font-family:var(--body);">#10 · Midfielder</span></div></div><div class="ig-footer"><div class="ig-likes">1 847 likes</div><div class="ig-caption"><strong>skn_frauen</strong> Alles Gute, Laura! 🎉</div></div></div></div><div class="phone-label"><span class="phone-label-type">Anniversaire Joueuse</span><span class="phone-label-desc">Post dédié avec numéro et poste</span></div></div>
+      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="ig-header"><div class="ig-avatar"></div><span class="ig-handle">skn_frauen</span><div class="ig-dots"><span></span><span></span><span></span></div></div><div class="post-image"><div class="post-image-inner post-birthday" style="background:linear-gradient(145deg,#04040e 0%,#0e0828 50%,#04040a 100%);"><span class="bday-num">28</span><div class="bday-photo-slot"><span class="bday-emoji">✨</span></div><span class="bday-label">Happy Birthday</span><span class="bday-name">Anna Schiefer</span><span style="font-size:6px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dust);font-family:var(--body);">#4 · Defender</span></div></div><div class="ig-footer"><div class="ig-likes">2 103 likes</div><div class="ig-caption"><strong>skn_frauen</strong> Joyeux anniversaire Anna! 🖤</div></div></div></div><div class="phone-label"><span class="phone-label-type">Variante couleur</span><span class="phone-label-desc">Palette adaptée par joueuse</span></div></div>
+    </div>
+    <!-- RECAP -->
+    <div class="phones-row" id="tab-recap" style="display:none;">
+      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="ig-header"><div class="ig-avatar"></div><span class="ig-handle">skn_frauen</span><div class="ig-dots"><span></span><span></span><span></span></div></div><div class="post-image"><div class="post-image-inner post-recap"><span class="recap-label">Full Time · AFBL J18</span><div class="recap-score">SKN <span>3</span> – AKA <span>1</span></div><span class="recap-desc">3 pts · 47' Brunner · 61' Schiefer · 88' Kern</span></div></div><div class="ig-footer"><div class="ig-likes">3 241 likes</div><div class="ig-caption"><strong>skn_frauen</strong> VICTOIRE 🖤 #AFBL</div></div></div></div><div class="phone-label"><span class="phone-label-type">Score Final</span><span class="phone-label-desc">Résultat avec buteuses</span></div></div>
+      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="ig-header"><div class="ig-avatar"></div><span class="ig-handle">skn_frauen</span><div class="ig-dots"><span></span><span></span><span></span></div></div><div class="post-image"><div class="post-image-inner" style="aspect-ratio:1;background:linear-gradient(170deg,#040610 0%,#080e22 60%,#04040a 100%);display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:12px;gap:5px;position:relative;"><span style="font-size:6.5px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ora-bright);font-family:var(--body);">Stats · Matchday 18</span><div style="width:100%;display:flex;flex-direction:column;gap:4px;margin-top:3px;"><div style="display:flex;justify-content:space-between;"><span style="font-size:7.5px;color:var(--ash);font-family:var(--body);">Possession</span><span style="font-size:6.5px;color:var(--cream);font-family:var(--body);">62%</span></div><div style="display:flex;justify-content:space-between;"><span style="font-size:7.5px;color:var(--ash);font-family:var(--body);">Tirs</span><span style="font-size:6.5px;color:var(--cream);font-family:var(--body);">14</span></div><div style="display:flex;justify-content:space-between;"><span style="font-size:7.5px;color:var(--ash);font-family:var(--body);">Passes réussies</span><span style="font-size:6.5px;color:var(--cream);font-family:var(--body);">84%</span></div></div></div></div><div class="ig-footer"><div class="ig-likes">1 532 likes</div><div class="ig-caption"><strong>skn_frauen</strong> Les stats 📊</div></div></div></div><div class="phone-label"><span class="phone-label-type">Stats Infographie</span><span class="phone-label-desc">Données analytiques du match</span></div></div>
+    </div>
+    <!-- WELCOME -->
+    <div class="phones-row" id="tab-welcome" style="display:none;">
+      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="ig-header"><div class="ig-avatar"></div><span class="ig-handle">skn_frauen</span><div class="ig-dots"><span></span><span></span><span></span></div></div><div class="post-image"><div class="post-image-inner post-welcome"><span class="welcome-num">7</span><div class="bday-photo-slot" style="width:56px;height:56px;"><span class="bday-emoji">⚽</span></div><span class="welcome-badge">New Signing</span><span class="welcome-name">Mia Hoffmann</span><span class="welcome-pos">Forward · From Altenmarkt</span></div></div><div class="ig-footer"><div class="ig-likes">4 128 likes</div><div class="ig-caption"><strong>skn_frauen</strong> Bienvenue Mia! 🖤</div></div></div></div><div class="phone-label"><span class="phone-label-type">Welcome Player</span><span class="phone-label-desc">Annonce de recrue</span></div></div>
+    </div>
+    <!-- STORIES -->
+    <div class="phones-row" id="tab-story" style="display:none;">
+      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="post-image"><div class="post-image-inner post-story"><div class="story-progress"></div><div class="story-top"><div class="story-avatar"></div><span class="story-handle">skn_frauen · 2h</span></div><div class="story-bottom"><div class="story-text">Pour les <em>livres d'histoire.</em> 🏆</div><div class="story-swipe">Voir le recap</div></div></div></div></div></div><div class="phone-label"><span class="phone-label-type">Story Victoire</span><span class="phone-label-desc">Story plein écran post-match</span></div></div>
+      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="post-image"><div class="post-image-inner post-story" style="background:linear-gradient(180deg,#040410 0%,#080e28 50%,#04040a 100%);"><div class="story-progress"></div><div class="story-top"><div class="story-avatar"></div><span class="story-handle">skn_frauen · 4h</span></div><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;gap:7px;"><span style="font-size:6.5px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ora-bright);font-family:var(--body);">Kickoff dans</span><span style="font-family:var(--display);font-style:italic;font-size:32px;font-weight:400;color:var(--white);line-height:1;">2h 30</span><span style="font-size:6.5px;letter-spacing:0.14em;color:var(--ash);font-family:var(--body);">SKN vs AKA · AFBL</span></div><div class="story-bottom"><div class="story-swipe">Rappel activé</div></div></div></div></div></div><div class="phone-label"><span class="phone-label-type">Story Countdown</span><span class="phone-label-desc">Compte à rebours avant match</span></div></div>
     </div>
   </section>
 
@@ -561,7 +618,7 @@
     <div class="collab-header reveal">
       <div class="section-label">Partners &amp; Clients</div>
       <h2 class="collab-title">Collab<em>ora</em>tions</h2>
-      <p class="collab-intro">Working with federations, clubs, brands and agencies who believe in the power of women's imagery.</p>
+      <p class="collab-intro">Working with federations, clubs, brands and agencies who believe in the power of women's football imagery.</p>
     </div>
     <div class="collab-grid reveal reveal-delay-1">
       <div class="collab-item"><span class="collab-logo-text">ÖFB</span><div class="collab-type">National Federation</div><p class="collab-desc">Official photographer for the Austrian Football Federation — covering national team matches and cup finals.</p></div>
@@ -581,54 +638,15 @@
     </div>
   </section>
 
-  <!-- SOCIAL MEDIA -->
-  <section id="social">
-    <div class="social-header reveal">
-      <div><div class="section-label">Content Creation</div><h2 class="social-title">Social <em>Media</em></h2></div>
-      <p class="social-intro">Beyond the lens — designing the visual identity of a club's Instagram: Gameday, Starting XI, extra content</p>
-    </div>
-    <div class="social-tabs reveal reveal-delay-1">
-      <button class="tab-btn active" data-tab="matchday">Match Day</button>
-      <button class="tab-btn" data-tab="birthday">Starting XI</button>
-      <button class="tab-btn" data-tab="recap">Recap</button>
-      <button class="tab-btn" data-tab="welcome">Extra content</button>
-    </div>
-    <!-- MATCH DAY -->
-    <div class="phones-row" id="tab-matchday">
-      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="ig-header"><div class="ig-avatar"></div><span class="ig-handle">skn_frauen</span><div class="ig-dots"><span></span><span></span><span></span></div></div><div class="post-image"><div class="post-image-inner post-matchday"><span class="match-date-tag">Sa. 15.03 · 16:00</span><div class="match-divider"></div><div class="match-vs">SKN <span>vs</span> AKA</div><span class="match-detail">AFBL · Matchday 18</span></div></div><div class="ig-footer"><div class="ig-actions"><svg class="ig-action" viewBox="0 0 24 24" fill="none" stroke="#d8d8ee" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="ig-likes">1 284 likes</div><div class="ig-caption"><strong>skn_frauen</strong> Gameday 🖤 #AFBL</div></div></div></div><div class="phone-label"><span class="phone-label-type">Match Announcement</span><span class="phone-label-desc">Affiche de match avec horaire et adversaire</span></div></div>
-      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="ig-header"><div class="ig-avatar"></div><span class="ig-handle">skn_frauen</span><div class="ig-dots"><span></span><span></span><span></span></div></div><div class="post-image"><div class="post-image-inner post-matchday" style="background:linear-gradient(170deg,#04080a 0%,#081422 60%,#040408 100%);"><span class="match-date-tag">Lineup · 15.03.2025</span><div class="match-divider"></div><div class="match-vs" style="font-size:13px;letter-spacing:0.08em;font-style:normal;">4–4–2</div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;width:100%;margin-top:7px;"><div style="text-align:center;"><div style="width:18px;height:18px;border-radius:50%;background:rgba(61,47,255,0.3);margin:0 auto 3px;"></div><span style="font-size:5px;color:#6868a0;font-family:var(--body);">MÜLLER</span></div><div style="text-align:center;"><div style="width:18px;height:18px;border-radius:50%;background:rgba(61,47,255,0.3);margin:0 auto 3px;"></div><span style="font-size:5px;color:#6868a0;font-family:var(--body);">BAUER</span></div><div style="text-align:center;"><div style="width:18px;height:18px;border-radius:50%;background:rgba(61,47,255,0.3);margin:0 auto 3px;"></div><span style="font-size:5px;color:#6868a0;font-family:var(--body);">KERN</span></div><div style="text-align:center;"><div style="width:18px;height:18px;border-radius:50%;background:rgba(61,47,255,0.3);margin:0 auto 3px;"></div><span style="font-size:5px;color:#6868a0;font-family:var(--body);">HUBER</span></div></div></div></div><div class="ig-footer"><div class="ig-likes">976 likes</div><div class="ig-caption"><strong>skn_frauen</strong> Starting XI 💪</div></div></div></div><div class="phone-label"><span class="phone-label-type">Lineup</span><span class="phone-label-desc">Formation tactique avec joueuses</span></div></div>
-      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="ig-header"><div class="ig-avatar"></div><span class="ig-handle">skn_frauen</span><div class="ig-dots"><span></span><span></span><span></span></div></div><div class="post-image"><div class="post-image-inner" style="aspect-ratio:1;background:linear-gradient(160deg,#04040e 0%,#080826 60%,#04040a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:14px;position:relative;"><div style="width:38px;height:38px;border-radius:50%;background:rgba(61,47,255,0.15);border:1px solid rgba(61,47,255,0.3);display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--display);font-size:14px;font-style:italic;color:var(--ora-bright);">D</span></div><span style="font-family:var(--display);font-style:italic;font-size:11px;font-weight:400;color:var(--cream);">Decathlon Football</span><span style="font-size:6px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ash);font-family:var(--body);">Official Partner</span></div></div><div class="ig-footer"><div class="ig-likes">642 likes</div><div class="ig-caption"><strong>skn_frauen</strong> Merci @decathlon 🙌</div></div></div></div><div class="phone-label"><span class="phone-label-type">Sponsor Post</span><span class="phone-label-desc">Mise en avant partenaire</span></div></div>
-    </div>
-    <!-- BIRTHDAY -->
-    <div class="phones-row" id="tab-birthday" style="display:none;">
-      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="ig-header"><div class="ig-avatar"></div><span class="ig-handle">skn_frauen</span><div class="ig-dots"><span></span><span></span><span></span></div></div><div class="post-image"><div class="post-image-inner post-birthday"><span class="bday-num">23</span><div class="bday-photo-slot"><span class="bday-emoji">🎂</span></div><span class="bday-label">Happy Birthday</span><span class="bday-name">Laura Brunner</span><span style="font-size:6px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dust);font-family:var(--body);">#10 · Midfielder</span></div></div><div class="ig-footer"><div class="ig-likes">1 847 likes</div><div class="ig-caption"><strong>skn_frauen</strong> Alles Gute, Laura! 🎉</div></div></div></div><div class="phone-label"><span class="phone-label-type">Anniversaire Joueuse</span><span class="phone-label-desc">Post dédié avec numéro et poste</span></div></div>
-      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="ig-header"><div class="ig-avatar"></div><span class="ig-handle">skn_frauen</span><div class="ig-dots"><span></span><span></span><span></span></div></div><div class="post-image"><div class="post-image-inner post-birthday" style="background:linear-gradient(145deg,#04040e 0%,#0e0828 50%,#04040a 100%);"><span class="bday-num">28</span><div class="bday-photo-slot"><span class="bday-emoji">✨</span></div><span class="bday-label">Happy Birthday</span><span class="bday-name">Anna Schiefer</span><span style="font-size:6px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dust);font-family:var(--body);">#4 · Defender</span></div></div><div class="ig-footer"><div class="ig-likes">2 103 likes</div><div class="ig-caption"><strong>skn_frauen</strong> Joyeux anniversaire Anna! 🖤</div></div></div></div><div class="phone-label"><span class="phone-label-type">Variante couleur</span><span class="phone-label-desc">Palette adaptée par joueuse</span></div></div>
-    </div>
-    <!-- RECAP -->
-    <div class="phones-row" id="tab-recap" style="display:none;">
-      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="ig-header"><div class="ig-avatar"></div><span class="ig-handle">skn_frauen</span><div class="ig-dots"><span></span><span></span><span></span></div></div><div class="post-image"><div class="post-image-inner post-recap"><span class="recap-label">Full Time · AFBL J18</span><div class="recap-score">SKN <span>3</span> – AKA <span>1</span></div><span class="recap-desc">3 pts · 47' Brunner · 61' Schiefer · 88' Kern</span></div></div><div class="ig-footer"><div class="ig-likes">3 241 likes</div><div class="ig-caption"><strong>skn_frauen</strong> VICTOIRE 🖤 #AFBL</div></div></div></div><div class="phone-label"><span class="phone-label-type">Score Final</span><span class="phone-label-desc">Résultat avec buteuses</span></div></div>
-      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="ig-header"><div class="ig-avatar"></div><span class="ig-handle">skn_frauen</span><div class="ig-dots"><span></span><span></span><span></span></div></div><div class="post-image"><div class="post-image-inner" style="aspect-ratio:1;background:linear-gradient(170deg,#040610 0%,#080e22 60%,#04040a 100%);display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:12px;gap:5px;position:relative;"><span style="font-size:6.5px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ora-bright);font-family:var(--body);">Stats · Matchday 18</span><div style="width:100%;display:flex;flex-direction:column;gap:4px;margin-top:3px;"><div style="display:flex;justify-content:space-between;"><span style="font-size:7.5px;color:var(--ash);font-family:var(--body);">Possession</span><span style="font-size:6.5px;color:var(--cream);font-family:var(--body);">62%</span></div><div style="display:flex;justify-content:space-between;"><span style="font-size:7.5px;color:var(--ash);font-family:var(--body);">Tirs</span><span style="font-size:6.5px;color:var(--cream);font-family:var(--body);">14</span></div><div style="display:flex;justify-content:space-between;"><span style="font-size:7.5px;color:var(--ash);font-family:var(--body);">Passes réussies</span><span style="font-size:6.5px;color:var(--cream);font-family:var(--body);">84%</span></div></div></div></div><div class="ig-footer"><div class="ig-likes">1 532 likes</div><div class="ig-caption"><strong>skn_frauen</strong> Les stats 📊</div></div></div></div><div class="phone-label"><span class="phone-label-type">Stats Infographie</span><span class="phone-label-desc">Données analytiques du match</span></div></div>
-    </div>
-    <!-- EXTRA CONTENT -->
-    <div class="phones-row" id="tab-extra" style="display:none;">
-      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="ig-header"><div class="ig-avatar"></div><span class="ig-handle">skn_frauen</span><div class="ig-dots"><span></span><span></span><span></span></div></div><div class="post-image"><div class="post-image-inner post-welcome"><span class="welcome-num">7</span><div class="bday-photo-slot" style="width:56px;height:56px;"><span class="bday-emoji">⚽</span></div><span class="welcome-badge">New Signing</span><span class="welcome-name">Mia Hoffmann</span><span class="welcome-pos">Forward · From Altenmarkt</span></div></div><div class="ig-footer"><div class="ig-likes">4 128 likes</div><div class="ig-caption"><strong>skn_frauen</strong> Bienvenue Mia! 🖤</div></div></div></div><div class="phone-label"><span class="phone-label-type">Welcome Player</span><span class="phone-label-desc">Annonce de recrue</span></div></div>
-    </div>
-    <!-- STORIES -->
-    <div class="phones-row" id="tab-story" style="display:none;">
-      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="post-image"><div class="post-image-inner post-story"><div class="story-progress"></div><div class="story-top"><div class="story-avatar"></div><span class="story-handle">skn_frauen · 2h</span></div><div class="story-bottom"><div class="story-text">Pour les <em>livres d'histoire.</em> 🏆</div><div class="story-swipe">Voir le recap</div></div></div></div></div></div><div class="phone-label"><span class="phone-label-type">Story Victoire</span><span class="phone-label-desc">Story plein écran post-match</span></div></div>
-      <div class="phone-card active"><div class="phone-frame"><div class="phone-screen"><div class="post-image"><div class="post-image-inner post-story" style="background:linear-gradient(180deg,#040410 0%,#080e28 50%,#04040a 100%);"><div class="story-progress"></div><div class="story-top"><div class="story-avatar"></div><span class="story-handle">skn_frauen · 4h</span></div><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;gap:7px;"><span style="font-size:6.5px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ora-bright);font-family:var(--body);">Kickoff dans</span><span style="font-family:var(--display);font-style:italic;font-size:32px;font-weight:400;color:var(--white);line-height:1;">2h 30</span><span style="font-size:6.5px;letter-spacing:0.14em;color:var(--ash);font-family:var(--body);">SKN vs AKA · AFBL</span></div><div class="story-bottom"><div class="story-swipe">Rappel activé</div></div></div></div></div></div><div class="phone-label"><span class="phone-label-type">Story Countdown</span><span class="phone-label-desc">Compte à rebours avant match</span></div></div>
-    </div>
-  </section>
-
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-left reveal">
       <div class="section-label" style="margin-bottom:18px;">Get in touch</div>
       <h2 class="contact-title">Let's work<br><em>together.</em></h2>
-      <p class="contact-text">Available for editorial assignments, brand campaigns, club partnerships, and long-term contracts across Europe.</p>
-      <div class="contact-email-display">wilhelm.laureen@gmail.com</div>
+      <p class="contact-text">Available for editorial assignments, brand campaigns, club partnerships, and long-term federation contracts across Austria and Europe.</p>
+      <div class="contact-email-display">hello@laureenwilhelm.com</div>
       <div class="contact-links reveal reveal-delay-1">
-        <a href="mailto:wilhelm.laureen@gmail.com" class="btn-primary">Send an email <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="mailto:hello@laureenwilhelm.com" class="btn-primary">Send an email <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         <a href="https://laureenwlm.myportfolio.com" target="_blank" class="btn-outline">Full Portfolio</a>
       </div>
       <div class="contact-socials reveal reveal-delay-2">
@@ -640,10 +658,10 @@
     <div class="contact-right reveal reveal-delay-2">
       <div class="contact-info-list">
         <div class="contact-info-item"><span class="contact-info-label">Based in</span><span class="contact-info-value">France</span></div>
-        <div class="contact-info-item"><span class="contact-info-label">Availability</span><span class="contact-info-value">Open to new projects · 2026 - 2027</span></div>
-        <div class="contact-info-item"><span class="contact-info-label">Coverage</span><span class="contact-info-value">France · Europe · International</span></div>
+        <div class="contact-info-item"><span class="contact-info-label">Availability</span><span class="contact-info-value">Open to new projects · 2025</span></div>
+        <div class="contact-info-item"><span class="contact-info-label">Coverage</span><span class="contact-info-value">Austria · Europe · International</span></div>
         <div class="contact-info-item"><span class="contact-info-label">Services</span><span class="contact-info-value">Photography · Content Creation · ORA Agency</span></div>
-        <div class="contact-info-item"><span class="contact-info-label">Languages</span><span class="contact-info-value">French · English · Spanish</span></div>
+        <div class="contact-info-item"><span class="contact-info-label">Languages</span><span class="contact-info-value">English · French · German</span></div>
       </div>
     </div>
   </section>
@@ -651,10 +669,14 @@
   <!-- FOOTER -->
   <footer>
     <p>© 2025 <span>Laureen Wilhelm</span>. All rights reserved.</p>
-    <p>France · <span>ORA AGENCY</span> Co-founder</p>
+    <p>France · <span>ORA</span> Co-founder</p>
   </footer>
 
   <script>
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 80);
+    });
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
     let mx=0,my=0,rx=0,ry=0;
@@ -681,6 +703,15 @@
         btn.classList.add('active');
       });
     });
+  </script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+        }
+      });
+    }
   </script>
 </body>
 </html>
