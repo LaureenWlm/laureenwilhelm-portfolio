@@ -1,0 +1,96 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+
+  # ── PORTFOLIO GALLERIES ──
+  - name: "galleries"
+    label: "Galeries Portfolio"
+    folder: "_galleries"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Fichier galerie (ex: gallery-ofb-cup.html)", name: "filename", widget: "string" }
+      - { label: "Année", name: "year", widget: "string" }
+      - { label: "Catégorie", name: "category", widget: "string", hint: "Ex: UWCL · 2025" }
+      - { label: "Client", name: "client", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - label: "Photos"
+        name: "photos"
+        widget: "list"
+        fields:
+          - label: "Photo"
+            name: "image"
+            widget: "image"
+            media_library:
+              config:
+                multiple: false
+
+  # ── ABOUT PHOTO ──
+  - name: "about"
+    label: "About"
+    files:
+      - label: "Photo portrait"
+        name: "portrait"
+        file: "_data/about.json"
+        fields:
+          - { label: "Photo portrait", name: "portrait", widget: "image" }
+          - { label: "Texte bio (paragraphe 1)", name: "bio1", widget: "text" }
+          - { label: "Texte bio (paragraphe 2)", name: "bio2", widget: "text" }
+
+  # ── SOCIAL MEDIA SCREENSHOTS ──
+  - name: "social"
+    label: "Social Media"
+    files:
+      - label: "Screenshots Instagram"
+        name: "screenshots"
+        file: "_data/social.json"
+        fields:
+          - label: "Match Day"
+            name: "matchday"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Légende", name: "caption", widget: "string" }
+          - label: "Anniversaire"
+            name: "birthday"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Légende", name: "caption", widget: "string" }
+          - label: "Recap"
+            name: "recap"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Légende", name: "caption", widget: "string" }
+          - label: "Welcome"
+            name: "welcome"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Légende", name: "caption", widget: "string" }
+          - label: "Stories"
+            name: "stories"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Légende", name: "caption", widget: "string" }
+
+  # ── COLLABORATIONS ──
+  - name: "collabs"
+    label: "Collaborations"
+    files:
+      - label: "Featured Project"
+        name: "featured"
+        file: "_data/featured.json"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Sous-titre", name: "tag", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
