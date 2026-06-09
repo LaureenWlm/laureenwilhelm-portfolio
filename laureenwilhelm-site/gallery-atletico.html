@@ -153,7 +153,6 @@
     .gallery-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
 
     .gallery-cell {
-      aspect-ratio: 1;
       position: relative;
       overflow: hidden;
       cursor: none;
@@ -162,7 +161,7 @@
 
     /* placeholder gradient — replace with <img> */
     .gallery-cell .cell-img {
-      width:100%; height:100%;
+      width:100%; height:auto;
       object-fit: cover;
       display: block;
       transition: transform .6s cubic-bezier(.25,.46,.45,.94);
@@ -509,7 +508,7 @@
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
         All work
       </a>
-      <a href="#contact" class="btn-primary">
+      <a href="index.html#contact" class="btn-primary">
         Get in touch
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
