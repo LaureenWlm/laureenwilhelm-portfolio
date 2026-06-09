@@ -344,7 +344,7 @@
     .featured-collab { display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--mid); overflow:hidden; }
     .featured-collab-image { aspect-ratio:4/3; background:var(--dark); position:relative; overflow:hidden; }
     .featured-collab-image::before { content:''; position:absolute; inset:0; background:linear-gradient(145deg,#0a0a1e 0%,#141430 60%,#040410 100%); }
-    .featured-collab-image::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 55% 45% at 50% 40%,rgba(61,47,255,0.1) 0%,transparent 70%); }
+    .featured-collab-image::after {content:''; position:absolute; inset:0;background: linear-gradient(to right, transparent 40%, rgba(15,15,30,0.85) 100%),linear-gradient(to top, rgba(61,47,255,0.12) 0%, transparent 60%);z-index: 1;}
     .featured-collab-content { padding:56px 48px; display:flex; flex-direction:column; justify-content:center; background:var(--dark); }
     .featured-collab-content h3 { font-family:var(--display); font-size:52px; font-weight:400; letter-spacing:0.02em; color:var(--white); margin-bottom:8px; line-height:.95; }
     .featured-collab-content .tag { font-size:9px; letter-spacing:.25em; text-transform:uppercase; color:var(--ora-bright); margin-bottom:20px; }
@@ -629,7 +629,7 @@
       <div class="collab-item"><span class="collab-logo-text">UWCL</span><div class="collab-type">European Coverage</div><p class="collab-desc">Documented Champions League level matches across Europe for the 25/26 season.</p></div>
     </div>
     <div class="featured-collab reveal reveal-delay-2">
-      <div class="featured-collab-image"></div>
+      <div class="featured-collab-image"><img src="images/u19-euro/photo-01.jpg" alt="U19 Women's Euro" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <div class="featured-collab-content">
         <div class="tag">Featured Project</div>
         <h3>U19 Women's Euro</h3>
