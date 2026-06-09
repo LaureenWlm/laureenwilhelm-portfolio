@@ -280,7 +280,7 @@
     .photo-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(4,4,10,.93) 0%, transparent 55%);
-      opacity: 0; transition: opacity .35s ease;
+      opacity: 1; transition: opacity .35s ease;
       display: flex; align-items: flex-end; padding: 20px; z-index: 3;
     }
     .photo-item:hover .photo-overlay { opacity: 1; }
@@ -316,7 +316,7 @@
     #about { background: var(--black); display: grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
     .about-image-block { position: relative; }
     .about-photo { width:100%; aspect-ratio:3/4; background:var(--dark); position:relative; overflow:hidden; }
-    .about-photo::before {content:''; position:absolute; inset:0;background: url('images/portrait.jpg') center center / cover no-repeat;}
+    .about-photo::before {content:''; position:absolute; inset:0;background: url('../images/portrait.jpg') center center / cover no-repeat;}
     .about-photo-caption { position:absolute; bottom:-1px; left:-1px; right:-1px; padding:10px 14px; border:1px solid var(--mid); background:var(--off-black); }
     .about-photo-caption span { font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--dust); }
     .about-frame { position:absolute; top:-14px; right:-14px; width:calc(100% - 28px); height:calc(100% - 28px); border:1px solid var(--ora-line); pointer-events:none; }
