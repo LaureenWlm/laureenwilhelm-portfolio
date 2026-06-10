@@ -145,9 +145,13 @@
     /* ── GRID ── */
     .gallery-grid {
       padding: 2px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      columns: 3;
+      column-gap: 2px;
+    }
+    
+    .gallery-cell {
+      break-inside: avoid;
+      margin-bottom: 2px;
     }
     .gallery-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
     .gallery-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
