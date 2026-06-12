@@ -123,26 +123,31 @@
         radial-gradient(ellipse 45% 55% at 10% 75%, rgba(61,47,255,0.09) 0%, transparent 60%),
         linear-gradient(170deg, #06060f 0%, #04040a 55%, #05050c 100%);
     }
-    /* ORA-style light orb */
-    .hero-orb-logo {
-      position: absolute; top: -5%; right: -5%;
-      width: 60vw; height: 60vw;
-      display: flex; align-items: center; justify-content: center;
-      animation: orbFloat 12s ease-in-out infinite;
-      pointer-events: none;
-    }
-    .hero-orb-logo img {
-      width: 70%; height: 70%;
-      object-fit: contain;
-      opacity: 0.2;
-    }
-    .hero-orb-2 {
-      position: absolute; bottom: -20%; left: -10%;
-      width: 50vw; height: 50vw; border-radius: 50%;
-      background: radial-gradient(circle at 60% 60%, #3d2fff 0%, transparent 65%);
-      opacity: 0.07; pointer-events: none;
-      animation: orbFloat 16s ease-in-out infinite reverse;
-    }
+      /* ORA-style light orb */
+    .hero-orb {
+      position: absolute; top: -10%; right: -5%;
+      width: 65vw; height: 65vw;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, 
+      #3d2fff 0%, 
+      #1a10cc 35%, transparent 70%);
+            opacity: 0.22;
+            animation: orbFloat 12s ease-in-out infinite;
+            pointer-events: none;
+          }
+          @keyframes orbFloat {
+            0%,100% { transform: translate(0,0) scale(1); }
+            33%      { transform: translate(-3%,4%) scale(1.03); }
+            66%      { transform: translate(2%,-3%) scale(0.97); }
+          }
+          .hero-orb-2 {
+            position: absolute; bottom: -20%; left: -10%;
+            width: 50vw; height: 50vw; border-radius: 50%;
+            background: radial-gradient(circle at 60% 60%, 
+      #3d2fff 0%, transparent 65%);
+            opacity: 0.07; pointer-events: none;
+            animation: orbFloat 16s ease-in-out infinite reverse;
+          }
     .hero-content { position: relative; z-index: 2; max-width: 800px; }
     .hero-tag {
       font-size: 10px; font-weight: 400; letter-spacing: 0.32em;
@@ -494,10 +499,8 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-orb-logo">
-      <img src="images/ora-logo.png" alt="">
-    </div>
+    <div class="hero-orb"></div>
+    <div class="hero-orb-2"></div>
     <div class="hero-orb-2"></div>
     <div class="hero-content">
       <div class="hero-tag">Sports Photographer · France</div>
