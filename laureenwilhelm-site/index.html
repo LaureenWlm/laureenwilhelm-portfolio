@@ -260,9 +260,10 @@
     .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
     .photo-item { aspect-ratio: 3/4; position: relative; overflow: hidden; cursor: none; display: block; text-decoration: none; }
     .photo-placeholder {
-      width: 100%; background: var(--dark);
+      position: absolute; inset: 0;
+      background: var(--dark);
       display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
+      overflow: hidden;
       transition: transform .55s cubic-bezier(.25,.46,.45,.94);
     }
     /* cover image for portfolio card */
